@@ -1,0 +1,244 @@
+:root {
+    --primary-dark: #1D1D1F;
+    --primary-light: #FFFFFF;
+    --secondary-light: #F5F5F7;
+    --accent-blue: #0071E3;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    background: linear-gradient(to bottom, var(--secondary-light), var(--primary-light));
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    letter-spacing: -0.25px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px 0 15px;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #3A3A3C;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #86868B;
+    font-weight: 400;
+}
+
+.country-flags {
+    margin-top: 2rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.team-card, .rule-card {
+    background: var(--secondary-light);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.team-card:hover, .rule-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.flag {
+    font-size: 1.5rem;
+}
+
+.schedule-tabs {
+    display: flex;
+    border-bottom: 1px solid #D2D2D7;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    color: #86868B;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.tab:hover {
+    color: var(--primary-dark);
+}
+
+.tab.active {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-blue);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.match-tables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.match-group {
+    background: var(--secondary-light);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.match {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 12px;
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+
+.match:hover {
+    transform: translateX(3px);
+}
+
+.vs {
+    color: #86868B;
+    font-weight: 500;
+}
+
+.team-placeholder {
+    font-weight: 500;
+    color: #3A3A3C;
+}
+
+.coming-soon {
+    text-align: center;
+    color: #86868B;
+    font-style: italic;
+    padding: 40px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    color: #86868B;
+    font-size: 0.9rem;
+    border-top: 1px solid #F0F0F0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .match-tables {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+}
